@@ -1,0 +1,208 @@
+ public class Archi
+    {
+        Personaggio personaggio = new Personaggio();
+
+        private string nome;
+
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+        public void ArcoIniziale()
+        {
+            Console.WriteLine($" {personaggio.Nome} ti sei appena traferito in una casa nuova" +
+                " alla ricerca di pace e tranquillità dopo delle esperienze orribile" +
+                " con dei co-inquilini che avevano modi di fare davvero squallidi \n ma dalle situazione brutte a volte nascono cosè belle" +
+                " e sei riuscito a trovare un bellissimo monolocale nella zona tranquilla della città" 
+                );
+            Console.ReadLine();
+                Console.WriteLine("O almeno così sembra");
+            Console.ReadLine();
+                personaggio.Mettiinventario("Navidson");
+            Console.Clear();
+            personaggio.Controlloinventario();
+        }
+
+
+    }
+
+public class Personaggio
+    {
+        private string nome;
+
+        public  string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+        public bool PrendiOggetto() // decisione per prendere l'oggetto o no
+        {
+            int i = 0;
+            bool raccogli = false;
+            Console.WriteLine("Vuoi prendere l'ogetto?");
+            string scelta = Console.ReadLine().ToLower();
+            while (scelta != "si" && scelta != "no")
+            {
+
+                Console.WriteLine("scrivi si o no");
+                scelta = Console.ReadLine().ToLower();
+                i++;
+                if (i == 50)
+                {
+                    Console.WriteLine("MA SEI SERIO???");
+                  
+                    Environment.Exit(0);
+
+                }
+            }
+            if (scelta == "si")
+            {
+                raccogli = true;
+            }
+
+            return raccogli; // la funzione ritorna un booleano per vedere se l'oggetto è stato preso o no
+
+        }
+
+        List<string> Inventario = new List<string>(10);
+
+
+        public int Vita = 5;
+        //string[] Inventario = new string[10];
+
+        public void Morte()
+        {
+            Console.WriteLine($"hai {Vita} punti vita");
+            if (Vita <= 0)
+            {
+                Console.WriteLine($"Sei morto" +
+                    $"R.I.P. {Nome} ora è in un posto migliore");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+
+        }
+        public bool ControllaInventario(string oggetto) ///ogni volta che è un oggetto
+            //è stato preso viene richiamato una funzione con un if è viene messo nella lista
+        { //se la decisione ritorna come true
+
+            
+            
+            return Inventario.Contains(oggetto);
+            //l'oggetto verra messo con una linea ad esempio personaggio.Mettiinventario("anguria");
+           
+        }
+       
+
+        public bool Mettiinventario(string oggetto)
+        {
+            bool ritorno;
+            int i = 0;
+            foreach (string s in Inventario)
+            {
+                i++;
+                if (i == 10)
+                {
+                    Inventario.Add(null);
+                    Console.WriteLine("Non hai più spazio nell'inventario" +
+                        " hai deciso di lasciarlo lì");
+                    return ritorno = false;
+                }
+
+            }
+
+            Inventario.Add(oggetto);
+            return  ritorno = true;
+
+
+        }
+        public void Controlloinventario()
+        {
+            Console.WriteLine("questi sono gli ogetti a disposizione");
+            Inventario.Sort();
+            foreach (string s in Inventario)
+            {
+
+                Console.WriteLine(s + "\n");
+            }
+
+        }
+
+        //inventario.Add(torcia)
+
+    }
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Archi archi = new Archi();
+            Console.WriteLine("Dimmi il tuo nome?");
+            Personaggio personaggio = new Personaggio();
+            personaggio.Nome = Console.ReadLine();
+            archi.ArcoIniziale();
+            
+           
+        }
+    }
+//dummy non è utilizzato
+class dummy
+    {
+        static void NotMain()
+        {
+
+            Console.WriteLine("dimmi il tuo nome?");
+            string decisione;
+            Personaggio personaggio = new Personaggio();
+            //personaggio.PrendiOggetto();
+            personaggio = new Personaggio();
+
+            personaggio.Nome = Console.ReadLine();
+            Console.WriteLine($"ciao {personaggio.Nome}");
+            personaggio.Mettiinventario("oggetto");
+            Console.WriteLine("ti ritrovi in una spiaggia senza nessun ricordo di come ci sei arrivato");
+            Console.WriteLine("davanti a te si trova un anguria però non hai modo per aprirla");
+            Console.WriteLine("vuoi prenderla lo stesso?");
+
+            if (personaggio.PrendiOggetto())
+            {
+                personaggio.Mettiinventario("anguria");
+                Console.WriteLine("hai preso l'anguria");
+
+            }
+            Console.WriteLine("continui a camminare, a un certo punto trovi una nutria");
+            Console.WriteLine("sembra aggressiva cosa vuoi fare ora?");
+            Console.WriteLine("1.Confronta la nutria \n" +
+                "2.Scappa Via");
+            if (personaggio.ControllaInventario("anguria"))
+            {
+
+                Console.WriteLine("3.Lanciali l'anguria");
+            }
+            bool controllo = false;
+            int opzione1 = 0;
+            controllo = int.TryParse(Console.ReadLine(), out opzione1);
+            while (!controllo)
+            {
+                Console.WriteLine("metti uno dei numeri indicati");
+                controllo = int.TryParse(Console.ReadLine(), out opzione1);
+            }
+            if (opzione1 == 1)
+            {
+                Console.WriteLine("hai cercato di confrontare la nutria");
+                Console.WriteLine("la nutria ti ha attacatto ed è subito scappata");
+                personaggio.Vita -= 2;
+                personaggio.Morte();
+
+            }
+            if (opzione1 == 2)
+            {
+                Console.WriteLine("si scappato in una direzione a caso");
+
+            }
+
+
+        }
+
+
+    }
