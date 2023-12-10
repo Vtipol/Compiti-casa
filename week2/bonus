@@ -1,0 +1,43 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            //es00bonus
+            int retry = 0;
+            string password = "password";
+            Console.WriteLine("metti la password");
+            string input = Console.ReadLine();
+            bool pass = false;
+            if (input == password)
+            {
+                pass = true;
+                Console.WriteLine("password corretta");
+
+            }
+            //for (retry = 0; retry<10; retry++)
+            //{
+            //    if (retry == 10)
+            //    {
+            //        Console.WriteLine("mi dispiace hai finito i tentativi");
+            //        Environment.Exit(0);
+
+            //    }
+
+
+            //}
+
+            while (pass == false)
+            {
+                Console.WriteLine("password errata riprova");
+                input = Console.ReadLine();
+                retry++;
+                if (retry == 10)
+                {
+                    Console.WriteLine("mi dispiace hai finito i tentativi");
+                    Environment.Exit(0);
+
+                }
+            }
+            
+        }
+    }
