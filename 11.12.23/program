@@ -1,0 +1,109 @@
+ class Program
+{
+    static void Main(string[] args)
+    {////es00
+        //Calcolatrice_avanzata avanzata = new Calcolatrice_avanzata();
+        //int num1;
+        //int num2;
+        //Console.WriteLine("questa è piccola calcolatrice");
+        //Console.ReadLine();
+        //Console.Clear();
+        //Console.WriteLine("vuoi una calcolatrice avanzata?");
+        //Console.WriteLine("scrivi si se vuoi una avanzata? \nscrivi qualcosa'altro per quella semplice");
+        //string decisione = Console.ReadLine();
+        //Console.Clear();
+        //if (decisione == "si")
+        //{
+        //    avanzata.CalcolatoreA();
+        //    Environment.Exit(0);
+        //}
+        //try
+        //{
+        //    Console.WriteLine("metti il primo numero");
+        //    num1 = Convert.ToInt32(Console.ReadLine());
+        //    Console.WriteLine("metti il secondo numero");
+        //    num2 = Convert.ToInt32(Console.ReadLine());
+
+
+        //}
+        //catch (Exception ex)
+        //{
+        //    Console.WriteLine("non sono stati messi dei numeri");
+        //    Console.WriteLine("metti il primo numero");
+        //    bool parser2 = int.TryParse(Console.ReadLine(), out num1);
+        //    Console.WriteLine("metti il secondo numero");
+        //    bool parser1 = int.TryParse(Console.ReadLine(), out num2);
+        //    while (!parser1 || !parser2)
+        //    {
+        //        Console.WriteLine("ma sei serio?");
+        //        Environment.Exit(0);
+        //    }
+        //}
+        //Console.WriteLine("che operazione vuoi fare a questi numeri?");
+        //string operatore = (Console.ReadLine());
+        //while (operatore != "+" && operatore != "-" && operatore != "*" && operatore != "/")
+        //{
+        //    Console.WriteLine("metti un operatore");
+        //    operatore = (Console.ReadLine());
+        //}
+        //int risultato = 0;
+        //switch (operatore)
+        //{
+        //    case "+":
+        //        operatore = "+";
+        //        risultato = num1 + num2;
+        //        Console.WriteLine(risultato);
+        //        break;
+        //    case "-":
+        //        operatore = "-";
+        //        risultato = num1 - num2;
+        //        Console.WriteLine(risultato);
+        //        break;
+        //    case "*":
+        //        operatore = "*";
+        //        risultato = num1 * num2;
+        //        Console.WriteLine(risultato);
+        //        break;
+        //    case "/":
+        //        operatore = "/";
+        //        try
+        //        {
+        //            int C = num1 / num2;
+        //        }
+        //        catch (DivideByZeroException)
+        //        {
+        //            Console.WriteLine("Divisioni per zero non sono accettate");
+        //            Console.ReadKey();
+        //            Environment.Exit(0);
+        //        }
+        //        risultato = num1 / num2;
+        //        Console.WriteLine(risultato);
+        //        break;
+
+        //}
+        ////es01
+        Console.WriteLine("quanti anni hai?");
+        int età = 0;
+        try
+        {
+            età = int.Parse(Console.ReadLine());
+           
+        }
+        catch (Exception ex)
+        {
+
+            
+            Console.WriteLine("...");
+            Console.WriteLine("quella non è un età");
+            Environment.Exit(0);
+        }
+        if (età <= -1)
+        {
+            throw new ArgumentOutOfRangeException(nameof(età), "non è possibile");
+
+        }
+
+        Console.WriteLine("ok");
+
+    }
+}
