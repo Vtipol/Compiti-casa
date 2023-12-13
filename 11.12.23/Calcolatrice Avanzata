@@ -1,0 +1,121 @@
+  internal class Calcolatrice_avanzata
+  {
+     
+      public void CalcolatoreA()
+      {
+          Console.WriteLine("Calcolatrice Avanzata");
+          Console.WriteLine("quanti numeri vuoi");
+          int N = 0;
+          bool parser = int.TryParse(Console.ReadLine(), out N);
+          while (!parser)
+          {
+              Console.WriteLine("quanti NUMERI vuoi");
+              parser = int.TryParse(Console.ReadLine(), out N);
+          }
+          double risultato = 0;
+          string operatore;
+          int[] Allnumbers = new int[N];
+          Console.WriteLine("metti i numeri");
+          for (int i = 0; i < Allnumbers.Length; i++)
+          {
+              bool Parser = int.TryParse(Console.ReadLine(), out Allnumbers[i]);
+              while (!Parser)
+              {
+                  Console.WriteLine("è tutto una questione di numeri,\nquindi metti dei numeri");
+                  Parser = int.TryParse(Console.ReadLine(), out Allnumbers[i]);
+              }
+          }
+          //for (int i = 0; i< Allnumbers.Length; i++)
+          //{
+          //    Console.WriteLine($"Element {i}: {Allnumbers[i]}");
+
+          //}
+          //int Lastindex = Allnumbers.Length;
+          int c = 0;
+          int m = 1;
+          int h = 0;
+          int o = 1;
+          foreach (int n in Allnumbers.Skip(0))
+          {
+
+              c++;
+              if (c == 2)
+              {
+                  risultato = risultato + n;
+                  continue;
+              }
+
+              m++;
+              h++;
+              o++;
+
+              Console.WriteLine($"che operatore vuoi mettere tra il n°{h} e il n°{o}?");
+              operatore = Console.ReadLine();
+              while (operatore != "+" && operatore != "-" && operatore != "*" && operatore != "/")
+              {
+                  Console.WriteLine("metti un operatore");
+                  operatore = (Console.ReadLine());
+              }
+
+              switch (operatore)
+              {
+                  case "+":
+                      operatore = "+";
+                      risultato = risultato + n;
+
+                      if (m == N)
+                      {
+                          Console.WriteLine($"il risultato è {risultato}");
+                          Console.Read();
+
+                      }
+                      break;
+                  case "-":
+                      operatore = "-";
+                      risultato = risultato - n;
+
+                      if (m == N)
+                      {
+                          Console.WriteLine($"il risultato è {risultato}");
+                          Console.Read();
+                      }
+
+
+                      break;
+                  case "*":
+                      operatore = "*";
+                      risultato = risultato * n;
+
+                      if (m == N)
+                      {
+                          Console.WriteLine($"il risultato è {risultato}");
+                          Console.Read ();
+                      }
+
+
+                      break;
+                  case "/":
+                      operatore = "/";
+                      risultato = risultato / n;
+                      if (risultato == 0 || n == 0)
+                      {
+                          throw new InvalidOperationException("non puoi dividere per zero");
+
+                      }
+                      if (m == N)
+                      {
+                          Console.WriteLine($"il risultato è {risultato}");
+                          Console.Read();
+                      }
+
+
+                      break;
+
+
+              }
+              
+          }
+         
+      }
+
+  }
