@@ -1,0 +1,91 @@
+ class Program
+    { //questi esercizi sono stati fatti in fretta, mi dispiace per l'incovenienza
+        static int CalcolaDoppio(int numero)
+        {
+            //numero = Convert.ToInt32(Console.ReadLine());
+            return numero ^ 2;
+
+        }
+        int CalcolaProdotto(int a, int b)
+        {
+
+
+            return a * b;
+        }
+       static int SommaElementiVettore(int[] vettore, int result)
+        {
+            
+            foreach (int n in vettore)
+            {
+               
+               
+                    result = n + result;
+                    
+                
+            }
+            Console.WriteLine(result);
+            return result;
+        }
+        static int TrovaMassimo(int a, int b)
+        {
+            if (a == b)
+            {
+                throw new NotImplementedException("non vale");
+                
+            }
+            if (a > b)
+            {
+                Console.WriteLine(a);
+                return a;
+            }else
+            {
+                Console.WriteLine(b);
+                return b;
+            }
+
+        }
+        static bool VerificaPresenza(int[] vettore, int numero)
+        {
+
+            foreach (int n in vettore)
+            {
+                if(n == numero )
+                {
+                    return true;
+                }    
+            }
+
+            return false;
+        }
+        static void Main(string[] args)
+        {
+            //int result = 0;
+            //int[] Vettore = { 1, 2, 3, 4 };
+            //SommaElementiVettore(Vettore,result);
+            //int n = Convert.ToInt32(Console.ReadLine());
+            //CalcolaDoppio(n);
+            //Console.WriteLine(n);
+            //int a = Convert.ToInt32(Console.ReadLine());
+            //int b = Convert.ToInt32(Console.ReadLine());
+            //TrovaMassimo(a,b);
+            int N = 2;
+            int ALL = 3;
+            int[] V = new int[3];
+            Console.WriteLine("Riempi l'array");
+            for (int i = 0; i<V.Length; i++)
+            {
+                bool P = int.TryParse((Console.ReadLine()), out V[i]);
+                while (!P)
+                {
+                    P = int.TryParse((Console.ReadLine()), out V[i]);
+                }
+            }
+            if (VerificaPresenza(V,N))
+            {
+                Console.WriteLine("numero trovato");
+            } else
+            {
+                Console.WriteLine("numero non trovato");
+            }
+        }
+    }
