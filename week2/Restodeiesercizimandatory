@@ -1,0 +1,127 @@
+ class Program
+    {
+        static string RotateArray;
+        static bool findIcreasingSubsequance(int[] Vettore)
+        {
+
+            for (int i = 1; i < Vettore.Length; i++)
+            {
+                if (Vettore[i - 1] > Vettore[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        static void Main(string[] args)
+        { //es2 rettangolo
+          //Console.WriteLine("metti la lunghezza");
+          //int h = Convert.ToInt32(Console.ReadLine());
+          //Console.WriteLine("metti la larghezza");
+          //int w = Convert.ToInt32(Console.ReadLine());
+
+            //for (int riga = 0; riga < h; riga++)
+            //{
+            //    for (int colonna = 0; colonna < w; colonna++)
+            //    {
+            //        if (riga == 0 || riga == h - 1 || colonna == 0 || colonna == w - 1)
+            //        {
+            //            Console.Write("*");
+            //        }
+            //        else
+            //        {
+            //            Console.Write("*");
+            //        }
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //es03 verifica sequenza crescente
+            //Console.WriteLine("metti la lunghezza del Vettore");
+            //int N = 0;
+            //bool Parser = int.TryParse(Console.ReadLine(), out N);
+            //while(!Parser)
+            //{
+            //     Parser = int.TryParse(Console.ReadLine(), out N);
+            //}
+            //int[] Vettore = new int[N];
+            //Console.WriteLine("Metti i numeri");
+            //for (int i = 0; i<Vettore.Length; i++)
+            //{
+            //    bool Parser1 = int.TryParse(Console.ReadLine(), out Vettore[i]);
+            //    while(!Parser1)
+            //    {
+            //        Parser1 = int.TryParse(Console.ReadLine(), out Vettore[i]);
+            //    }
+            //}
+            //if
+            //(findIcreasingSubsequance(Vettore) == true)
+            //{
+            //    Console.WriteLine("l'array è ordinato");
+
+            //}else
+            //{
+            //    Console.WriteLine("l'array non è ordinato");
+            //}
+
+
+            //es04
+            //Console.WriteLine("metti la lunghezza del Vettore");
+            //int N = 0;
+            //bool Parser = int.TryParse(Console.ReadLine(), out N);
+            //while (!Parser)
+            //{
+            //    Parser = int.TryParse(Console.ReadLine(), out N);
+            //}
+            //int[] Vettore = new int[N];
+            //Console.WriteLine("Metti i numeri");
+            //for (int i = 0; i < Vettore.Length; i++)
+            //{
+            //    bool Parser1 = int.TryParse(Console.ReadLine(), out Vettore[i]);
+            //    while (!Parser1)
+            //    {
+            //        Parser1 = int.TryParse(Console.ReadLine(), out Vettore[i]);
+            //    }
+
+
+            //}
+            //for (int i = 0; i < Vettore.Length; i++)
+            //{
+            //    Console.Write($"{Vettore[i]} ");
+
+            //}
+            //bool completeshift = false;
+            //Console.WriteLine("" +
+            //    "scrivi si se vuoi scalare di destra");
+            //string faiunoshift = Console.ReadLine();
+            //while (faiunoshift == "si")
+            //{
+            //    int x = Vettore[Vettore.Length - 1];
+            //    for (int i = Vettore.Length - 1; i > 0; i--)
+            //    {
+            //        Vettore[i] = Vettore[i - 1];
+            //        completeshift = true;
+            //    }
+            //    Vettore[0] = x;
+            //    Console.WriteLine("ancora?");
+            //    faiunoshift = Console.ReadLine();
+            //}
+            //for (int i = 0; i < Vettore.Length; i++)
+            //{
+            //    Console.Write($"" +
+            //        $"{Vettore[i]} ");
+
+            //}
+            //if (completeshift == false)
+            //{
+            //    Console.WriteLine("Shift non fatto");
+
+            //}else
+            //{
+            //    Console.WriteLine("shift fatto");
+            //}
+            //Console.ReadLine();
+        }
+    }
