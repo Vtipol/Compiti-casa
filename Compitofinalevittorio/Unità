@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Progetto_finale_Vittorio
+{
+    /// <summary>
+    /// Ogni unità ha un nome, vita, danno, costorisorse. Lo schieramento (per ora) è inutilizzato
+    /// ho deciso di stampare le truppe in tutte le funzioni così le avevo a disposizione
+    /// senza sempre cambiare classe
+    /// </summary>
+    internal class Unità
+    {
+        Giocatore giocatore = new Giocatore();
+        private string nome { get; set; }
+        private float vita { get; set; }
+        private float danno { get; set; }
+        private float costorisorse { get; set; }
+        public bool schieramento { get; set; }
+        public Unità(string nome, float vita, float danno, float costorisorse)
+        {
+            this.nome = nome;
+            this.vita = vita;
+            this.danno = danno;
+            this.costorisorse = costorisorse;
+            this.schieramento = false;
+
+        }
+        public string Nome
+        {
+            get { return nome; }
+            set
+            {
+                nome = value;
+            }
+        }
+        public float Vita
+        {
+            get { return vita; }
+            set
+            {
+                vita = value;
+            }
+        }
+        public float Danno
+        {
+            get { return danno; }
+            set
+            {
+                danno = value;
+            }
+        }
+        public float Costorisorse
+        {
+            get { return costorisorse; }
+            set
+            {
+                costorisorse = value;
+            }
+        }
+        public bool Schieramento
+        {
+            get { return schieramento; }
+            set
+            {
+                schieramento = false;
+            }
+        }
+
+
+        List<Unità> Listadiunità = new List<Unità>();
+        protected void Lista(List<Unità> Listadiunità)
+        {
+            Listadiunità.Add(new Unità("Soldatino Semplice", 25, 10, 10));
+            Listadiunità.Add(new Unità("Exogino", 25, 20, 15));
+            Listadiunità.Add(new Unità("Sorpresina Kinder", 40, 12, 15));
+            Listadiunità.Add(new Unità("Tenente Lego", 100, 20, 45));
+            Listadiunità.Add(new Unità("Poliziotto  Playmobil", 25, 50, 25));
+            Listadiunità.Add(new Unità("Gormita", 131, 40, 50));
+            Listadiunità.Add(new Unità("Power Ranger", 200, 25, 100));
+            Listadiunità.Add(new Unità("Hot Wheels", 200, 100, 120));
+            Listadiunità.Add(new Unità("Action Man", 400, 90, 200));
+            Listadiunità.Add(new Unità("Bambola in ceramica di mia Madre", 1000, 100, 500));
+        }
+    }
+}
