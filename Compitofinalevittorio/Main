@@ -1,0 +1,116 @@
+using System;
+using Progetto_finale_Vittorio;
+using System.ComponentModel;
+using System.Collections.Generic;
+
+namespace Progetto_finale_Vittorio
+{
+
+    class Program
+    {
+        protected void Lista(List<Unità> Listadiunità)
+        {
+            Listadiunità.Add(new Unità("Soldatino Semplice", 25, 10, 10));
+            Listadiunità.Add(new Unità("Exogino", 25, 20, 15));
+            Listadiunità.Add(new Unità("Sorpresina Kinder", 40, 12, 15));
+            Listadiunità.Add(new Unità("Tenente Lego", 100, 20, 45));
+            Listadiunità.Add(new Unità("Poliziotto  Playmobil", 25, 50, 25));
+            Listadiunità.Add(new Unità("Gormita", 131, 40, 50));
+            Listadiunità.Add(new Unità("Power Ranger", 200, 25, 100));
+            Listadiunità.Add(new Unità("Hot Wheels", 200, 100, 120));
+            Listadiunità.Add(new Unità("Action Man", 400, 90, 200));
+            Listadiunità.Add(new Unità("Bambola in ceramica di mia Madre", 1000, 100, 500));
+        }
+        static void Mettietà(int età, string nome)
+        {
+            Console.WriteLine("Metti la tua età");
+            età = 0;
+            bool Parser = int.TryParse(Console.ReadLine(), out età);
+            while (!Parser)
+            {
+                Console.WriteLine("un'età è un numero");
+                Parser = int.TryParse(Console.ReadLine(), out età);
+            }
+            if (età < 18)
+            {
+                Console.WriteLine($"mi dispiace {nome} sei ancora troppo giovane per questo" +
+                    $" gioco dedicato ai nostalgici. Torna tra qualche anno");
+                Environment.Exit(0);
+            }
+            Console.Clear();
+        }
+        static void Main(string[] args)
+        {
+            Giocatore giocatore = new Giocatore();
+            TurnieVincitore Statogioco = new TurnieVincitore();
+            CombatSystem Combat = new CombatSystem();
+            Console.WriteLine("Inserisci il nome del Giocatore 1");
+            string G1 = Console.ReadLine();
+            int etàG1 = 0;
+            Mettietà(etàG1, G1);
+            Console.WriteLine("Inserisci il nome del Giocatore 2");
+            string G2 = Console.ReadLine();
+            int etàG2 = 0;
+            Mettietà(etàG2, G2);
+            Descrizione(G1, G2);
+            string giocatoreattuale = "placeholder";
+            giocatore.NumeroRisorse = 1000;
+            giocatore.Giocatore_HP = 1000;
+            float G1R = 1000;
+            float G2R = 1000;
+            float Actionstate = 0;
+            float Turn = 0;
+            float Combatstate = 0;
+            bool END = false;
+            List<Unità> ListadiunitàG1 = new List<Unità>();
+            List<Unità> ListadiunitàG2 = new List<Unità>();
+            List<Unità> UnitàSchierateG1 = new List<Unità>();
+            List<Unità> UnitàSchierateG2 = new List<Unità>();
+            float G1HP = 1000;
+            float G2HP = 1000;
+            TurnieVincitore.Turn(Actionstate, Turn, Combatstate);
+            while (END == false)
+            {
+                Statogioco.Gamewin(G1, G2, G1HP, G2HP, G1R, G2R, END);
+                if (Actionstate == 1)
+                {
+                    Combat.MettinelCampo(ListadiunitàG1, UnitàSchierateG1, G1);
+                    Combat.MettinelCampo(ListadiunitàG2, UnitàSchierateG2, G2);
+                    Actionstate--;
+                }
+                if (Combatstate == 1)
+                {
+                    Combat.CombatInt(UnitàSchierateG1, UnitàSchierateG2,  G1HP,  G2HP, G1R, G2R, G1, G2);
+                    Statogioco.Gamewin(G1, G2, G1HP, G2HP, G1R, G2R, END);
+                    Combatstate--;
+                }
+                //Combat.Combatstatus(G1, G2, G1HP, G2HP, G1R, G2R);
+                Unità instanza = new Unità("instanza", 100, 100, 100);
+                giocatoreattuale = G1;
+                //giocatore.Unitàseleziona(G1R, 0, instanza.Costorisorse, giocatoreattuale, ListadiunitàG1);
+                G1R =giocatore.Unitàseleziona(G1R, 0, instanza.Costorisorse, giocatoreattuale, ListadiunitàG1); // per cambiare le risorse dei giocatori
+                giocatore.Controllotruppe(G1, ListadiunitàG1);
+                giocatoreattuale = G2;
+              G2R =  giocatore.Unitàseleziona(G2R, 0, instanza.Costorisorse, giocatoreattuale, ListadiunitàG2);
+                giocatore.Controllotruppe(G2, ListadiunitàG2);
+                Actionstate++;
+                Turn++;
+                Combatstate++;
+                Statogioco.Gamewin(G1, G2, G1HP, G2HP, G1R, G2R, END);
+
+            }
+            Console.WriteLine("Game Over");
+            Console.ReadLine();
+        }
+        static void Descrizione(string n1, string n2)
+        {
+            Console.WriteLine($"Benvenuti in Small Warfare {n1}, {n2}! purtroppo per voi non siete più così giovani e la vità" +
+                $" vi stara cosstringendo a cose noiosissime tipo scandenze da rispettare, bollette da pagare, colleghi antipatici" +
+                $" Datori di lavoro tirchi, motorini e auto che si guastano. \nBene, dimenticate tutto questo " +
+                $"e preparatevi a rivivere la vostra infanzia a colpi di soldatini che esplodono e bambole che si spezzano. " +
+                $"questo è Small Warfare, una battaglia all'ultimo sangue tra i pupazzetti del nostro passato");
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+}
