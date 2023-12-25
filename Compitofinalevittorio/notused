@@ -1,0 +1,20 @@
+/// <summary>
+    /// Originalmente volevo che fosserò tipo una selezione di carte da pelare
+    /// 1 volta all'inizio del turno ma per mancanza di tempo dovrò fare qualcosa di molto
+    /// più semplice
+    /// idee:
+    /// 1 Avidità: se un giocatore spende troppe risorse saràa colpito da uno stato
+    /// di avidità e le sue truppe il prossimo turno costeranno il doppio
+    /// 1 Furia: se il giocatore riceve  più di 300 danni nello stesso turno,
+    /// le sue truppe faranno 3 volte più danno,
+    /// 1 se ogni
+    /// </summary>
+    class WildCard
+    {
+        public static void BattleAliments(string G1, string G2, float G1HP, float G2HP, float G1R, float G2R, float Turni)
+        {
+            
+
+        }
+    }
+}
