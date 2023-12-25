@@ -1,0 +1,234 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Progetto_finale_Vittorio;
+
+namespace Progetto_finale_Vittorio
+{
+    /// <summary>
+    /// i giocatori hanno una vità e un costorisorse poi possono scegliere le unità
+    /// con uno switch case
+    /// </summary>
+    internal class Giocatore
+    {
+        private float giocatore_HP;
+        private float numerorisorse;
+        public float NumeroRisorse
+        {
+            get { return numerorisorse; }
+            set
+            {
+                numerorisorse = value;
+            }
+
+        }
+        public float Giocatore_HP
+        {
+            get { return giocatore_HP; }
+            set { giocatore_HP = value; }
+        }
+        List<Unità> Listadiunità = new List<Unità>();
+        public void Pesca(List<string> Carte)
+        {
+
+        }
+        public float Unitàseleziona(float numerorisorse, float selezionemassima, float costorisorse, string chigioca, List<Unità> Listadiunità)
+        {
+            int riprova = 0;
+            int limitE = 0;
+            int limitC = 0;
+            int limitG = 0;
+            int limitM = 0;
+            Console.WriteLine($"Seleziona le unità {chigioca}");
+            Console.WriteLine("1.Soldatino Semplice costo-10, vita-25, danno-20 \n2.Exogino costo-15, vita-25, danno-40 " +
+                 "\n3.Sorpresina Kinder costo-15, vita-40, danno-30 \n4.Tenente Lego costo-45, vita-100, danno-75\n5.Poliziotto  Playmobil costo-25, vita-25, danno-60" +
+                 "\n6.Gormita costo-50, vita-131, danno-100 (limite:5) \n7.Power Ranger costo-100, vita-200, danno-175 (limite:3) \n8.Hot Wheels costo-120, vita-200, danno-200 (limite:2) \n9.Action Man costo-200, vita-400, danno-300 (limite:2)" +
+                 "\n10.Bambola in ceramica di mia Madre costo-1500, vita-1000, danno-500 \n11.Finisci selezione" +
+                 "\npuoi selezionare massimo 10 truppe per turno");
+            int Selezione = 0;
+            Console.WriteLine($"{selezionemassima}/10");
+            do
+            {
+                if (riprova >= 1)
+                {
+                    Console.WriteLine($"{chigioca} aggiungi un'altra truppa");
+                    Console.WriteLine("1.Soldatino Semplice costo-10, vita-25, danno-20 \n2.Exogino costo-15, vita-25, danno-40 " +
+                "\n3.Sorpresina Kinder costo-15, vita-40, danno-30 \n4.Tenente Lego costo-45, vita-100, danno-75\n5.Poliziotto  Playmobil costo-25, vita-25, danno-60" +
+                "\n6.Gormita costo-50, vita-131, danno-100 (limite:5) \n7.Power Ranger costo-100, vita-200, danno-175 (limite:3) \n8.Hot Wheels costo-120, vita-200, danno-200 (limite:2) \n9.Action Man costo-200, vita-400, danno-300 (limite:2)" +
+                "\n10.Bambola in ceramica di mia Madre costo-1500, vita-1000, danno-500 \n11.Finisci selezione" +
+                "\npuoi selezionare massimo 10 truppe per turno");
+                    Console.WriteLine($"{selezionemassima}/10");
+                }
+                int selezione = 0;
+                bool Parser = int.TryParse(Console.ReadLine(), out selezione);
+                while (!Parser || selezione >= 12 || selezione <= 0)
+                {
+                    Console.WriteLine("metti uno dei numeri accanto alle truppe");
+                    Parser = int.TryParse(Console.ReadLine(), out selezione);
+                }
+                switch (selezione)
+                {
+                    case 1:
+                        Listadiunità.Add(new Unità("Soldatino Semplice", 25, 20, 10));
+                        Console.WriteLine("Soldatino Semplice aggiunto allo squadrone");
+                        costorisorse = 10;
+                        break;
+                    case 2:
+                        Listadiunità.Add(new Unità("Exogino", 25, 40, 15));
+                        Console.WriteLine("Exogino aggiunto allo squadrone");
+                        costorisorse = 15;
+                        break;
+                    case 3:
+                        Listadiunità.Add(new Unità("Sorpresina Kinder", 40, 30, 15));
+                        Console.WriteLine("Sorpresina Kinder aggiunto allo squadrone");
+                        costorisorse = 15;
+                        break;
+                    case 4:
+                        Listadiunità.Add(new Unità("Tenente Lego", 100, 75, 45));
+                        Console.WriteLine("Tenente Lego aggiunto allo squadrone");
+                        costorisorse = 45;
+                        break;
+                    case 5:
+                        Listadiunità.Add(new Unità("Poliziotto  Playmobil", 25, 60, 25));
+                        Console.WriteLine("Poliziotto  Playmobil aggiunto allo squadrone");
+                        costorisorse = 25;
+                        break;
+                    case 6:
+                        limitM++;
+                        if (limitM == 6)
+                        {
+                            Console.WriteLine("Limite Gormita raggiunto");
+                            Console.ReadLine();
+                            Console.Clear();
+                            continue;
+                        }
+                        Listadiunità.Add(new Unità("Gormita", 131, 100, 50));
+                        Console.WriteLine("Gormita aggiunto allo squadrone");
+                        costorisorse = 50;
+                        break;
+                    case 7:
+                        limitG++;
+                        if (limitG == 4)
+                        {
+                            Console.WriteLine("Limite Power Ranger raggiunto");
+                            Console.ReadLine();
+                            Console.Clear();
+                            continue;
+                        }
+                        Listadiunità.Add(new Unità("Power Ranger", 200, 170, 100));
+                        Console.WriteLine("Power Ranger aggiunto allo squadrone");
+                        costorisorse = 100;
+                        break;
+                    case 8:
+                        limitC++;
+                        if (limitC == 3)
+                        {
+                            Console.WriteLine("Limite Hot Wheels raggiunto");
+                            Console.ReadLine();
+                            Console.Clear();
+                            continue;
+                        }
+                        Listadiunità.Add(new Unità("Hot Wheels", 200, 200, 120));
+                        Console.WriteLine("Hot Wheels aggiunto allo squadrone");
+                        costorisorse = 120;
+                        break;
+                    case 9:
+                        limitE++;
+                        if (limitE == 3)
+                        {
+                            Console.WriteLine("Limite Action Man raggiunto");
+                            Console.ReadLine();
+                            Console.Clear();
+                            continue;
+                        }
+                        Listadiunità.Add(new Unità("Action Man", 400, 300, 200));
+                        Console.WriteLine("Action Man aggiunto allo squadrone");
+                        costorisorse = 200;
+                        break;
+                    case 10:
+                        if (numerorisorse < 500 || selezionemassima >= 1)
+                        {
+                            Console.WriteLine("Bambola in ceramica di mia Madre ormai non è piu" +
+                                " disponibile");
+                            Console.ReadLine();
+                            Console.Clear();
+                            continue;
+                        }
+                        Listadiunità.Add(new Unità("Bambola in ceramica di mia Madre", 1000, 500, 500));
+                        Console.WriteLine("Attenzione, Bambola in ceramica di mia Madre sta arrivando");
+                        Console.ReadLine();
+                        Console.Clear();
+                        return numerorisorse -= 500;
+
+                    case 11:
+                        if (riprova < 1)
+                        {
+                            Console.WriteLine("hai bisogno di almeno una truppa");
+                            Console.ReadLine();
+                            Console.WriteLine("aggiungi una truppa");
+                            continue;
+                        }
+                        Console.WriteLine("Andiamo avanti");
+                        Console.ReadLine();
+                        Console.Clear();
+                        return numerorisorse;
+
+                }
+                riprova++;
+                numerorisorse -= costorisorse;
+                if (numerorisorse <= -1)
+                {
+                    Console.WriteLine("è stato rimossa perchè non hai risorse sufficienti" +
+                        "\nseleziona un'altra truppa");
+                    Console.ReadLine();
+                    numerorisorse += costorisorse;
+                    Listadiunità.RemoveAt(Listadiunità.Count - 1);
+                    continue;
+                }
+                if (numerorisorse <= 9)
+                {
+                    Console.WriteLine($"{chigioca} non hai più risorse");
+                    Console.ReadLine();
+                    Console.Clear();
+                    return numerorisorse;
+                }
+                Console.WriteLine(numerorisorse);
+                Console.WriteLine("Vuoi aggiungere altre truppe?");
+                Console.WriteLine("1.Si \n2.No Continua");
+                selezionemassima++;
+                if (selezionemassima == 10)
+                {
+                    Console.Clear();
+                    Console.WriteLine("10/10");
+                    Console.WriteLine("Limite raggiunto");
+                    Console.ReadLine();
+                    Console.Clear();
+                    return numerorisorse;
+                }
+
+                bool Parser1 = int.TryParse(Console.ReadLine(), out Selezione);
+                while (!Parser1 && Selezione >= 3 && selezione <= 0)
+                {
+                    Console.WriteLine("Metti uno dei numero accanto alle frasi");
+                    Parser1 = int.TryParse(Console.ReadLine(), out Selezione);
+                }
+                Console.Clear();
+            } while (Selezione != 2);
+            return numerorisorse;
+        }
+        public void Controllotruppe(string G, List<Unità> Listadiunità)
+        {
+            Console.WriteLine($"{G} queste sono le tue unità");
+            Listadiunità.Sort((i1, i2) => i1.Nome.CompareTo(i2.Nome));
+            for (int i = 0; i < Listadiunità.Count; i++)
+            {
+                Console.WriteLine(Listadiunità[i].Nome);
+            }
+            Console.ReadLine();
+            Console.Clear();
+        }
+
+    }
+}
