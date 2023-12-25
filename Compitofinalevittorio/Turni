@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Progetto_finale_Vittorio
+{
+    /// <summary>
+    /// Serve a vedere chi ha vinto le condizioni di vittoria sono se la
+    /// vita di un giocatore è uguale o minore a 0 perde, senno se un giocatore
+    /// non ha più risorse il vincitore sarà chi ha più vita e risorse/2
+    /// </summary>
+    internal class TurnieVincitore
+    {
+        public static void Turn(float TroopActionstate, float Turn, float Combatstate)
+        {
+
+
+        }
+        public bool Gamewin(string G1, string G2, float HP1, float HP2, float risorse1, float risorse2, bool END)
+        {
+            END = false;
+            float Scorefinale = HP1 + (risorse1/2);
+            float Scorefinale1 = HP2 + (risorse2/2);
+            if (HP1 <= 0)
+            {
+                Console.WriteLine($"{G1} non ha più punti vita");
+                Console.ReadLine();
+                Console.WriteLine($"{G1} è crollato");
+                Console.WriteLine($"{G2} ha vinto, congratulazioni!!!");
+                Console.Read();
+                Environment.Exit(0);
+            }
+            if (HP2 <= 0)
+            {
+                Console.WriteLine($"{G2} non ha più punti vita");
+                Console.ReadLine();
+                Console.WriteLine($"{G2} è crollato");
+                Console.WriteLine($"{G1} ha vinto, congratulazioni!!!");
+                Console.Read();
+                Environment.Exit(0);
+            }
+            if (risorse1 <= 9)
+            {
+                Console.WriteLine($"{G1} non ha abbastanza risorse per continuare");
+                Console.ReadLine();
+            }
+            if (risorse2 <= 9)
+            {
+                Console.WriteLine($"{G2} non ha abbastanza risorse per continuare");
+                Console.ReadLine();
+            }
+            if (risorse1 <= 9 || risorse2 <= 9)
+            {
+                Console.WriteLine("il vincitore sarà deciso da chi avra più vita e risorse");
+                Console.ReadLine();
+                Console.WriteLine($"{G1} = {Scorefinale}");
+                Console.WriteLine($"{G2} = {Scorefinale1}");
+                if (Scorefinale > Scorefinale1)
+                {
+                    Console.WriteLine($"{G1} ha vinto");
+                    Environment.Exit(0);
+                }
+                 if (Scorefinale1 > Scorefinale)
+                {
+                    Console.WriteLine($"{G2} ha vinto");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("è un pareggio");
+                    Environment.Exit(0);
+                }
+
+            }
+
+
+            return END;
+        }
+    }
+}
