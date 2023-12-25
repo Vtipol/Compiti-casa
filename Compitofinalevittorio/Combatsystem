@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Progetto_finale_Vittorio;
+namespace Progetto_finale_Vittorio
+{
+    /// <summary>
+    /// il combat system serve a ad aggiungere le unità in un altra lista
+    /// per poi fare il combattimento con la funzione mettinel campo il foreach
+    /// fa in modo che tutto sia trasferito in un altra lista poi il combattimento
+    /// è manipolato nella combatint: è un sistema semplice se il danno di una lista
+    /// è maggiore della vita dell'altra lista, i danni di eccesso verranno
+    /// ricevuti dal giocatore, senno il giocatore con i danni più alti ricevera
+    /// un po' di vità e risorse
+    /// </summary>
+     class CombatSystem
+    {
+        TurnieVincitore Vincitore = new TurnieVincitore();
+        Giocatore giocatore = new Giocatore();
+        Unità unità = new Unità("instanza", 10, 10, 10);
+        List<Unità> Listadiunità = new List<Unità>();
+        public void Combatstatus(string G1N, string G2N,  float giocatore1hp,  float giocatore2hp, float giocatore1res, float giocatore2res)
+        {
+
+            Console.WriteLine("Rapporto stato Giocatori");
+            Console.WriteLine($"{G1N}, vita:{giocatore1hp}, risorse:{giocatore1res}");
+            Console.WriteLine($"{G2N}, vita:{giocatore2hp}, risorse:{giocatore2res}");
+            Console.ReadLine();
+            Console.Clear();
+        }
+        public  void MettinelCampo(List<Unità> List, List<Unità> List1, string G)
+        {
+          
+
+            Console.WriteLine($"{G} ora le tue truppe verranno schierate");
+            foreach (Unità U in List)
+            {
+                Console.WriteLine($"{U.Nome} è stato schierato");
+
+            }
+            foreach (Unità U in List)
+            {
+                List1.Add(U);
+            }
+            Console.ReadLine();
+            Console.Clear();
+
+        }
+        public void CombatInt(List<Unità> List, List<Unità> List1,  float Playerhealth,  float Playerhealth1, float PlayerR, float PlayerR1, string G1, string G2)
+        {
+
+            Random RNG = new Random();
+            int Random = RNG.Next(5, 10);
+            float sumList = 0;
+            float sumList1 = 0;
+            float SumVita = 0;
+            float SumVita1 = 0;
+            sumList = List.Sum(unità => unità.Danno);//espressione lambda, il => serve
+            sumList1 = List1.Sum(unità => unità.Danno);//a estrarre il danno di tutte le unità
+            SumVita = List.Sum(unità => unità.Vita);
+            SumVita1 = List1.Sum(unità => unità.Vita);
+            if (sumList > SumVita1)
+            {
+                float Dannidieccesso = sumList - SumVita1;
+                Playerhealth1 -= Dannidieccesso;
+                Console.WriteLine($"{G2} ha ricevuto {Dannidieccesso} Danni!");
+                Console.ReadLine();
+               
+            }
+            else if (sumList > sumList1)
+            {
+                Console.WriteLine($"Le truppe di {G1} Sono riuscite ad abbattare l'assalto di {G2}" +
+                    $"\nPerò {G2} non ha ricevuto danni.");
+                Console.ReadLine();
+                Console.WriteLine($"{G1} verrà ricompensato recuperanto un po' di vità e risorse");
+               Playerhealth += Random;
+               PlayerR += Random;
+            }
+
+            if (sumList1 > SumVita)
+            {
+                float Dannidieccesso = sumList1 - SumVita;
+               Playerhealth -= Dannidieccesso;
+                Console.WriteLine($"{G1} ha ricevuto {Dannidieccesso} Danni!");
+                Console.ReadLine();
+               
+            }
+            else if (sumList1 > sumList)
+            {
+                Console.WriteLine($"Le truppe di {G2} Sono riuscite ad abbattare l'assalto di {G1}" +
+                    $"\nPerò {G1} non ha ricevuto danni.");
+                Console.ReadLine();
+                Console.WriteLine($"{G2} verrà ricompensato recuperanto un po' di vità e risorse");
+                Playerhealth1 += Random;
+                PlayerR1 += Random;
+            }
+            if (sumList1 == sumList)
+            {
+                Console.WriteLine("Interazione Nulla tra i giocatori \n nessun danno ricevuto");
+                Console.ReadLine();
+            }
+            List.Clear();
+            List1.Clear();
+            Console.WriteLine("Tutte le truppe schierare sono state rimosse");
+            Combatstatus(G1, G2, Playerhealth, Playerhealth1, PlayerR, PlayerR1);   
+           
+            Vincitore.Gamewin(G1, G2, Playerhealth, Playerhealth1, PlayerR, PlayerR1, END: false);
+        }
+    }
+
+}
