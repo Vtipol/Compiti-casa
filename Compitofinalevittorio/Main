@@ -47,12 +47,12 @@ namespace Progetto_finale_Vittorio
             Console.WriteLine("Inserisci il nome del Giocatore 1");
             string G1 = Console.ReadLine();
             int etàG1 = 0;
-            Mettietà(etàG1, G1);
+           //Mettietà(etàG1, G1);
             Console.WriteLine("Inserisci il nome del Giocatore 2");
             string G2 = Console.ReadLine();
             int etàG2 = 0;
-            Mettietà(etàG2, G2);
-            Descrizione(G1, G2);
+            //Mettietà(etàG2, G2);
+           //Descrizione(G1, G2);
             string giocatoreattuale = "placeholder";
             giocatore.NumeroRisorse = 1000;
             giocatore.Giocatore_HP = 1000;
