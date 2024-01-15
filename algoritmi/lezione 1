@@ -1,0 +1,368 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Win32;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Algoritms
+{
+    internal class Program
+    {
+        /// <summary>
+        /// il programma avrà un array che riceve una serie di numeri 
+        /// i numeri saranno randomici, il programma ora dovrà vedere 
+        /// se uno dei numeri contiene un numero preciso (esempio se cerca 3
+        /// dovrà rilevare 23 34 8593 4312 ogni numero che contiene 3) 
+        /// se non rileva nulla allora dirà non ho trovato quello che volevo
+        /// </summary>
+        static void Algoritmo(int[] arr, int EXC)
+        {
+            Random rnd = new Random();
+            int N = rnd.Next(1, 6);
+            arr = new int[N];
+            int f = arr.Length;
+            Console.WriteLine($"Metti {f} numeri");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                bool Parser = int.TryParse(Console.ReadLine(), out arr[i]);
+                while (!Parser)
+                {
+                    Console.WriteLine("ho bisogno di numeri");
+                    Parser = int.TryParse(Console.ReadLine(), out arr[i]);
+                }
+
+            }
+            int Dec = rnd.Next(0, 10);
+            switch (Dec)
+            {
+                case 2:
+                    Console.WriteLine("Inizero a cercare il numero");
+                    Console.WriteLine($"Il numero è {Dec}");
+                    break;
+
+            }
+        }
+        //es1
+        /// <summary>
+        /// per il MCD bisogna che l'utente inserisca i numeri, poi dividere questi numeri 
+        /// con un ciclo for finchè il risultato è 1, salvare ogni divisione in una variabile[]
+        /// poi prelevare il numero più grande ripetuto, poi dopo la  selezione
+        /// stamparlo ex: MCD(24,36) = 12.
+        /// </summary>
+        static void MCD(double num1, double num2)
+        {
+            Console.WriteLine("Metti due numeri");
+            bool Parser = double.TryParse(Console.ReadLine(), out num1);
+            while (!Parser)
+            {
+                Console.WriteLine("ho bisogno di un numero");
+                Parser = double.TryParse(Console.ReadLine(), out num1);
+            }
+            bool Parser1 = double.TryParse(Console.ReadLine(), out num2);
+            while (!Parser1)
+            {
+                Console.WriteLine("ho bisogno di un numero");
+                Parser1 = double.TryParse(Console.ReadLine(), out num2);
+            }
+            double Divisore = 0;
+            double comunedivisore = 0;
+            while (Divisore <= num1 && Divisore <= num2)
+            {
+                if (Divisore % num1 == 0 && Divisore % num2 == 0)
+                {
+                    comunedivisore = Divisore;
+                    Console.WriteLine($"{comunedivisore}");
+                }
+                Divisore++;
+            }
+
+        }
+        //es2
+        /// <summary>
+        /// Complessità Temporale: Scrivere gli 
+        /// algoritmi e calcolare la notazione asintotica di 
+        /// Merge sort, Insertion sort, Bubble sort Quick Sort.
+        /// </summary>
+        /// bubble é abbastanza semplice in teoria ma mi scomoda mettere
+        /// un for loop dentro un altro for loop, dopo un poò di sperimentazione
+        /// ho fatto questo un loop che controlla se l'index davanti è maggiore
+        /// di quello davanti e poi riaordinarlo
+        static void Bubble()
+        { // bubble
+            int[] Bubbler = { 20, 11, 42, 63, 14, 25, 86, 37, 8, };
+            int n = Bubbler.Length;
+            for (int i = 0; i< n - 1; i++)
+            {
+                for(int j = 0; j< n-i-1; j++)
+                {
+                    if (Bubbler[j] > Bubbler[j + 1])
+                    {
+                        int Bubble = Bubbler[j];
+                        Bubbler[j] = Bubbler[j + 1];
+                        Bubbler[j + 1] = Bubble; 
+                    }
+                }
+            }
+            for (int i = 0; i < Bubbler.Length; i++)
+            {
+                Console.WriteLine(Bubbler[i]);
+            }
+
+        }
+        /// <summary>
+        ///passiamo un arrray in un'altra funzione che scompone l'array finchè
+        ///abbiamo un array per ogni numero poi con una funzione ricomporre
+        ///utilizzando i sub-array e l'array originali, pensavo fosse semplice
+        ///ma ho avuto molti oproblemi ha fare la scomposizione e ricomposizione
+        ///seconso me la meglio era utilizzare due funzioni
+        /// </summary>
+        /// <param name="Merger"></param>
+        static void Mergesort(int[] Merger)
+        {
+            int n = Merger.Length;
+            if (n <= 1) return;
+
+            int middle = n / 2;
+            int[] left = new int[middle];
+            int[] right = new int[n - middle];
+
+            for (int i = 0; i < n; i++)
+            {
+                if (i < middle)
+                {
+                    left[i] = Merger[i];
+                }
+                else
+                {
+                    right[i - middle] = Merger[i];
+                }
+            }
+
+            Mergesort(left);
+            Mergesort(right);
+            Merge(left, right, Merger);
+            for(int i = 0; i < n; i++)
+            {
+                Console.WriteLine(Merger[i]);
+            }
+        }
+
+        static void Merge(int[] left, int[] right, int[] Merged)
+        {
+            int l = left.Length;
+            int r = right.Length;
+            int iM = 0;
+            int iL = 0;
+            int iR = 0;
+
+            while (iL < l && iR < r)
+            {
+                if (left[iL] < right[iR])
+                {
+                    Merged[iM] = left[iL];
+                    iM++;
+                    iL++;
+                }
+                else
+                {
+                    Merged[iM] = right[iR];
+                    iM++;
+                    iR++;
+                }
+            }
+
+            while (iL < l)
+            {
+                Merged[iM] = left[iL];
+                iM++;
+                iL++;
+            }
+
+            while (iR < r)
+            {
+                Merged[iM] = right[iR];
+                iM++;
+                iR++;
+            }
+        }
+    //insertion
+    /// <summary>
+    /// si inizia dal primo index e lo muoviamo in una var temporanea, dopo 
+    /// guardiamo se l'index precedente è maggiore facciamo uno swap di
+    /// posizione scorrimo l'array per ogni iterazione
+    /// </summary>
+    static void Insertion(int[] Inserit)
+        {
+           
+            int n = Inserit.Length;
+            for (int i = 1; i < n; i++)
+            {
+                int ins = Inserit[i];
+                int j = i - 1;
+                while (j >= 0 && Inserit[j] > ins)
+                {
+                    Inserit[j + 1] = Inserit[j];
+                    j--;
+                }
+                Inserit[j+1] = ins;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(Inserit[i]);
+            }
+
+        }
+        //quick
+        /// <summary>
+        /// abbiamo bisogno di finire il loop se end minore di start,
+        /// utilizzeremo due indici, uno all'inizio dell'arrary e uno prima
+        /// dell'inizio dell'array abbiamo bisogno anche dell'aiuto di una
+        /// variabile temporanea, se il valore del primo indice e meno
+        /// dell'ultimo index dell'array aumendare l'indice di 1 se è maggiore
+        /// senno aumentare l'altro indice di 1 e fare uno swap tra i due
+        /// indici con l'aiuto di una variabile temporanea
+        /// </summary>
+        static void Quick(int[] Quickie, int start, int end)
+        {
+            int n = Quickie.Length;
+            if (end <= start) return;
+           int gira = Separa(Quickie, start, end);
+            Quick(Quickie, start, gira - 1);
+            Quick(Quickie, gira + 1, end);
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(Quickie[i]);
+            }
+        }
+        static int Separa(int[] Quickie, int start, int end)
+        {
+            int gira = Quickie[end];
+            int i = start - 1;
+            for (int j = start; j<= end -1; j++)
+            {
+                if (Quickie[j] < gira)
+                {
+                    i++;
+                    int t = Quickie[i];
+                    Quickie[i] = Quickie[j];
+                    Quickie[j] = t;
+                }
+            }
+            i++;
+            int the = Quickie[i];
+            Quickie[i] = Quickie[end];
+            Quickie[end] = the;
+            return i;
+        }
+        //es3
+        /// <summary>
+        /// 1:  Verifica di Primalità
+        /// Descrizione: Dato un numero intero positivo, decidere se è un numero primo.
+        /// questa è una soluzione semi-decidibile, perchè non possiamo sapere se il
+        /// numero è sempre intero positivo possiamo anche ricevere numeri negativi
+        /// Ordinamento di una Lista
+        ///Descrizione: Data una lista di numeri, decidere se è ordinata in modo crescente.
+        /// è possibile trovare una semplice logica per decidere se la lista è ordinata
+        /// la soluzione e decidibile
+        ///  Riconoscimento di Stringhe Palindromiche
+        ///Descrizione: Data una stringa, accettare se è palindromica
+        ///(si legge allo stesso modo in avanti e all'indietro).
+        ///ci sono polche parole palindromiche, però il programma le può sempre
+        ///accettare, non è possibile convertire però la maggior parte delle
+        ///parole, è una soluzione, semi-decidibile
+        ///Problema dell'Halting (Arresto) Generale
+        ///Descrizione: Dato un programma P e un input I, decidere se P termina
+        ///sull'input I.
+        ///due input occuppano spazi diversi, non è possibile che p termini su i
+        ///o viceversa, termina o l'uno o l'altro o nessuno dei due la soluzione è
+        ///indecidibile
+        ///Problema dell'Uguaglianza di Due Programmi
+        //Descrizione: Dati due programmi P1 e P2, decidere se producono lo
+        //stesso output per ogni possibile input.
+        ///non sapendo la struttura di due programmi, gli input che potrebbero
+        ///ricevere è un mistero, anche se fossero uguali, potrebbero avere una serie
+        ///di input completamente diversa, la soluzione è indecidibile
+        /// </summary>
+
+        //es 4 ricerca binaria
+        ///dobbiamo inziare dando un value da ricevere per poi cercarlo
+        ///la ricerca inizia dal mezzo controllare se il value ricevuto
+        ///è minore o maggiore del value centrale eliminare la mezza parte dove
+        ///l'array non si trova, continualre il proocesso finchè il numero è
+        ///trovato.
+        static void RicercaBinaria()
+        {
+            int N = Array.MaxLength;
+            int[] array = new int[N];
+            Console.WriteLine("metti un index");
+            int Ricevuta = 0;
+            bool Parser = int.TryParse(Console.ReadLine(), out Ricevuta);
+                while (!Parser) Parser= int.TryParse(Console.ReadLine(), out Ricevuta);
+            for (int i = 0; i< array.Length; i++)
+            {
+                array[i] = i;
+            }
+            int indx = BinarySearch(array, Ricevuta);
+            if (indx == -1)
+            {
+                Console.WriteLine("index non trovato");
+            }
+            else
+            {
+                Console.WriteLine("index trovato:" + indx);
+            }
+        }
+
+         static int BinarySearch(int[] array, int ricevuta)
+        {
+            int sangue = 0;
+            int bencotto = array.Length - sangue;
+            while(sangue<= bencotto)
+            {
+                int medio = sangue + (bencotto - sangue) / 2;
+                int cottura = array[medio];
+                if (cottura < ricevuta) sangue = medio + 1;
+                else if (cottura > ricevuta) bencotto = medio - 1;
+                else return medio;
+            }
+            return -1;
+        }
+        /// <summary>
+        /// Ricerca lineare,
+        /// serve a cercare l'index controllando ciascuno index presente nella
+        /// lista più grande la data più grande sarà il processo, non c'è
+        /// bisogno di riordinarli
+        /// </summary>
+        /// <param name=""></param>
+        static int RicercaLineare(int[] array, int v)
+        {
+            for (int i = 0; i< array.Length; i++)
+            {
+                if (array[i] == v)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        static void Main(string[] args)
+        {
+            int[] arr = {4,6,1,2,7,5,8,9,3};
+            //Algoritmo(arr: new int[1], 0);
+            //MCD(24, 36);
+            //Bubble();
+            //Mergesort(arr) ;
+            //Insertion(arr);
+            //Quick(arr, 0, arr.Length - 1);
+            //RicercaBinaria();
+            //int index = RicercaLineare(arr, 1);
+            //Console.WriteLine(index);
+            Console.ReadKey();
+        }
+    }
+}
