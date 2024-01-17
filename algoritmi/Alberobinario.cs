@@ -59,22 +59,7 @@ namespace Tree
 
            
 		}
-		public void remove(int data)
-		{
-
-		}
-		public albero rimozione(albero tronco, int data)
-		{
-			return null;
-		}
-		private int successore(albero tronco)
-		{
-			return 1;
-		}
-        private int predecessore(albero tronco)
-        {
-			return 1;
-        }
+		
     }
 }
 
