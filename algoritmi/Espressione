@@ -1,0 +1,14 @@
+namespace Tree
+{
+	public class Espressione
+	{
+		public char Data;
+		public Espressione left;
+		public Espressione right;
+		public Espressione(char data)
+		{
+			this.Data = data;
+		}
+
+	}
+}
