@@ -1,0 +1,49 @@
+namespace Tree
+{
+	public class Expresstree
+	{
+		public static bool Operato(char operatore)
+		{
+			if (operatore ==  '+' || operatore == '-' || operatore == '*' ||
+				operatore == '/' )
+				return true;
+			 return false;
+			
+		}
+		public Espressione Operatore(string operazione)
+		{
+			Stack<Espressione> espress = new Stack<Espressione>();
+			Espressione n1, n2, t;
+			for (int i = 0; i < operazione.Length; i++)
+			{
+				if (!Operato(operazione[i]))
+				{
+					t = new Espressione(operazione[i]);
+					espress.Push(t);
+				}
+				else
+				{
+					t = new Espressione(operazione[i]);
+					n1 = espress.Pop();
+					n2 = espress.Pop();
+
+					t.left = n2;
+					t.right = n1;
+
+					espress.Push(t);
+				}
+				
+			}
+            t = espress.Pop();
+            return t;
+        }
+		public void Ordinare(Espressione tronco)
+		{
+			if (tronco == null) return;
+			Ordinare(tronco.left);
+			Console.Write(tronco.Data);
+			Ordinare(tronco.right);
+		}
+	}
+}
+
