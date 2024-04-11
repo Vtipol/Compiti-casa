@@ -1,0 +1,15 @@
+/Users/vittorio/Projects/Pmmerge/Pmmerge/bin/Debug/net7.0/Pmmerge
+/Users/vittorio/Projects/Pmmerge/Pmmerge/bin/Debug/net7.0/Pmmerge.deps.json
+/Users/vittorio/Projects/Pmmerge/Pmmerge/bin/Debug/net7.0/Pmmerge.runtimeconfig.json
+/Users/vittorio/Projects/Pmmerge/Pmmerge/bin/Debug/net7.0/Pmmerge.dll
+/Users/vittorio/Projects/Pmmerge/Pmmerge/bin/Debug/net7.0/Pmmerge.pdb
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.csproj.AssemblyReference.cache
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.AssemblyInfoInputs.cache
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.AssemblyInfo.cs
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.csproj.CoreCompileInputs.cache
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.dll
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/refint/Pmmerge.dll
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.pdb
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/Pmmerge.genruntimeconfig.cache
+/Users/vittorio/Projects/Pmmerge/Pmmerge/obj/Debug/net7.0/ref/Pmmerge.dll
