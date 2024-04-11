@@ -1,0 +1,15 @@
+/Users/vittorio/Projects/CNT/CNT/bin/Debug/net7.0/CNT
+/Users/vittorio/Projects/CNT/CNT/bin/Debug/net7.0/CNT.deps.json
+/Users/vittorio/Projects/CNT/CNT/bin/Debug/net7.0/CNT.runtimeconfig.json
+/Users/vittorio/Projects/CNT/CNT/bin/Debug/net7.0/CNT.dll
+/Users/vittorio/Projects/CNT/CNT/bin/Debug/net7.0/CNT.pdb
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.csproj.AssemblyReference.cache
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.AssemblyInfoInputs.cache
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.AssemblyInfo.cs
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.csproj.CoreCompileInputs.cache
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.dll
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/refint/CNT.dll
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.pdb
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/CNT.genruntimeconfig.cache
+/Users/vittorio/Projects/CNT/CNT/obj/Debug/net7.0/ref/CNT.dll
