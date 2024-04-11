@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPi", "NPi\NPi.csproj", "{D39B7D28-3850-4C9B-B414-0CD7A699AA44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D39B7D28-3850-4C9B-B414-0CD7A699AA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39B7D28-3850-4C9B-B414-0CD7A699AA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39B7D28-3850-4C9B-B414-0CD7A699AA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39B7D28-3850-4C9B-B414-0CD7A699AA44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B08D377-917A-44A0-BA47-A57EA85E9D48}
+	EndGlobalSection
+EndGlobal

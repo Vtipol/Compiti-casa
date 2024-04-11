@@ -1,0 +1,15 @@
+/Users/vittorio/Projects/NPi/NPi/bin/Debug/net7.0/NPi
+/Users/vittorio/Projects/NPi/NPi/bin/Debug/net7.0/NPi.deps.json
+/Users/vittorio/Projects/NPi/NPi/bin/Debug/net7.0/NPi.runtimeconfig.json
+/Users/vittorio/Projects/NPi/NPi/bin/Debug/net7.0/NPi.dll
+/Users/vittorio/Projects/NPi/NPi/bin/Debug/net7.0/NPi.pdb
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.csproj.AssemblyReference.cache
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.AssemblyInfoInputs.cache
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.AssemblyInfo.cs
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.csproj.CoreCompileInputs.cache
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.dll
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/refint/NPi.dll
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.pdb
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/NPi.genruntimeconfig.cache
+/Users/vittorio/Projects/NPi/NPi/obj/Debug/net7.0/ref/NPi.dll
