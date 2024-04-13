@@ -1,0 +1,15 @@
+/Users/vittorio/Projects/Event/Event/bin/Debug/net7.0/Event
+/Users/vittorio/Projects/Event/Event/bin/Debug/net7.0/Event.deps.json
+/Users/vittorio/Projects/Event/Event/bin/Debug/net7.0/Event.runtimeconfig.json
+/Users/vittorio/Projects/Event/Event/bin/Debug/net7.0/Event.dll
+/Users/vittorio/Projects/Event/Event/bin/Debug/net7.0/Event.pdb
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.csproj.AssemblyReference.cache
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.AssemblyInfoInputs.cache
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.AssemblyInfo.cs
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.csproj.CoreCompileInputs.cache
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.dll
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/refint/Event.dll
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.pdb
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/Event.genruntimeconfig.cache
+/Users/vittorio/Projects/Event/Event/obj/Debug/net7.0/ref/Event.dll
